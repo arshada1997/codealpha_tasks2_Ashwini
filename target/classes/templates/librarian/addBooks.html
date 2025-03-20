@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <html xmlns:th="http://www.thymeleaf.org">
+        <head th:replace="~{/fragments/head::head}">
+        </head>
+      <body class="sub_page">
+      
+        <div class="hero_area">
+           <div class="bg-box">
+            <img th:src="@{/resources/static/images/hero-bg.png}" alt="">
+          </div>
+          <header th:replace="~{/fragments/header::header}"></header>
+        </div>
+      
+    <section class="book_section layout_padding">
+      <div class="container-fluid"> 
+          <div class="greetings" style="margin:50px ;">
+          </div>  
+       <div class="container">
+	    <div class="row" style="margin: -110px 400px 30px;">
+         <div class="col-md-4">
+          <div class="card" style=" margin: 10px -190px ;width: 20rem;">
+		  <p th:text="${success}" th:if="${success ne null}"  class="alert alert-light" ></p>
+<br>
+            <form th:action="@{/librarian/addBooks}" th:object="${books}" method="post">
+                <center><h2>Add Book</h2></center>
+             <div class="card-body"  style="margin:0px 10px -20px ;width:900;height: 600px;">
+                <div>
+                <label>Catagory :</label><input type="text" id="catagory" name="catagory"   class="form-control" placeholder="Enter Book Catagory" />
+                </div>
+                
+                <div>
+                <label>Book Name :</label><input type="text" id="book_name" name="book_name"   class="form-control" placeholder="Enter Book Name" />
+                </div>
+                <div>
+                <label>Author :</label><input type="text" id="author" name="author"   class="form-control" placeholder="Enter Author" />
+                </div>
+                <div>
+                <label>Publisher :</label><input type="text" id="publisher" name="publisher"   class="form-control" placeholder="Enter Publisher" />
+                </div>
+                <div>
+                <label>Book Copies :</label><input type="text" id="book_copies" name="book_copies"   class="form-control" placeholder="Enter Book Copies" />
+                </div>
+                <div>
+                <label>Recieved Date :</label><input type="LocalDate" id="recieved" name="recieved"   class="form-control" placeholder="Enter Recieved Date YYYY-MM-DD" />
+                </div>
+              
+              
+               <div class="btn_box" style="margin:30px 20px">
+                <button type="submit" class="btn  btn-secondary btn-lg btn-danger"> 
+                  Add
+                </button>
+               </div> 
+              </div> 
+             </form>
+            </div>
+            </div> 
+          <div class="col-md-4">
+          <div class="card" style=" margin: 10px 100px ;width: 20rem;">
+         		  <p th:text="${successEB}" th:if="${successEB ne null}"  class="alert alert-light" ></p>
+<br>
+
+            <form th:action="@{/librarian/addEBooks}" th:object="${ebooks}" method="post" enctype="multipart/form-data">
+                <!--img th:src="@{/resources/static/images/person.png}" style="margin:0px 80px; width:100px;height: 200px;" class="card-img-top" alt=""-->
+                <center><h2>Add EBook</h2></center>
+             <div class="card-body"  style="margin:0px 10px -20px ;width:900;height: 500px;">
+                <div>
+                <label>Type:</label><input type="text" id="ecatagory" name="ecatagory"   class="form-control" placeholder="Enter Catagory" />
+                </div>
+                
+            <br>
+                <div>
+                <label>Upload File:</label><input type="file" name="file" accept="application/pdf" required>
+
+                </div>
+              
+              
+               <div class="btn_box" style="margin:30px 20px">
+                <button type="submit" class="btn  btn-secondary btn-lg btn-danger"> 
+                  Add
+                </button>
+               </div> 
+              </div> 
+             </form>
+            </div>
+            </div> 
+        
+           </div></div>
+          </div></center>
+         </section></body></html> 

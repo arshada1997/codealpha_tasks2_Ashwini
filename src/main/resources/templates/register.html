@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="~{/fragments/head::head}">
+  </head>
+
+<body class="sub_page">
+
+  <div class="hero_area">
+    <div class="bg-box">
+      <img th:src="@{/resources/static/images/hero1-bg.jpg}" alt="">
+    </div>
+    <header th:replace="~{/fragments/header::header}"></header>
+  </div>
+
+  <!-- about section -->
+   <center>
+  <section class="book_section layout_padding">
+   <div class="container">
+      <div class="heading_container">
+        <h4>
+          ADMIN SIGNUP
+        </h4>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form_container">
+            <p th:text="${msg}" th:if="${msg ne null}"  class="alert alert-success" ></p>
+
+            <form action="#"
+             th:action="@{/saveRegister}" th:object="${admin}" method="post">
+             <!--  th:object="${account}"
+             method="post">
+              --> 
+              <div>
+                <input type="text" id="name" name="name"   class="form-control" placeholder="Enter Full Name" />
+              </div>
+              <div>
+                <input id="email" name="email" type="text" class="form-control" placeholder="Enter Email" />
+<!--                 <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" th:errorclass="error"  class="alert alert-danger" role="alert">Email Error</p>
+ -->              </div>
+              <div>
+                <input type="password" id="password" name="password"  class="form-control" placeholder="Enter Password" />
+<!--                 <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" th:errorclass="error"  class="alert alert-danger" role="alert">Password Error</p>
+ -->
+              </div>
+              <div>
+                <input type="text" id="contactNo" name="contactNo"   class="form-control" placeholder="Enter MobileNo" />
+              </div>
+              <div>
+                <input type="text" id="address" name="address"   class="form-control" placeholder="Enter Address" />
+              </div>
+<!--               th:field="*{middlename}"
+ -->           
+             
+              <div>
+                <input type="LocalDate" id="date_of_birth" name="date_of_birth"  class="form-control" placeholder="Enter date_of_birth" />
+<!--                 <p th:if="${#fields.hasErrors('birthofDate')}" th:errors="*{birthofDate}" th:errorclass="error"  class="alert alert-danger" role="alert">birthofDate Error</p>
+ -->
+              </div>
+           
+              <div>
+                <select name="text" id="gender"  class="form-control me-2" placeholder="Select gender" >
+                  <option value=" ">SELECT</option>
+                  <option value="MALE">MALE</option>
+                  <option value="FEMALE">FEMALE</option>
+                  <option value="OTHERS">OTHERS</option>
+
+                </select>
+<!--                 <p th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}" th:errorclass="error"  class="alert alert-danger" role="alert">Gender Error</p>
+ -->
+<!--               </div>
+ -->               <div>
+            <!--     <select name="text" id="role"   class="form-control me-2" placeholder="Select User" onchange="toggleFields()" required>
+                  <option value=" ">SELECT USER</option>
+
+                  <option value="ADMIN">ADMIN</option>
+                  <option value="TEACHER">TEACHER</option>
+                  <option value="STUDENT">STUDENT</option>
+
+                </select>
+             -->  
+              <div class="btn_box">
+                <button type="submit" class="btn  btn-secondary btn-lg btn-danger"> 
+                  SignUp
+                </button>
+            
+              </form>
+        </div>
+    </div></div></div>
+  </section></center>
+  <!-- end register section -->
+
+<!--   <footer th:replace="~{/fragments/footer::footer}">
+ -->  <!-- end about section -->
+
+</body>
+
+</html>

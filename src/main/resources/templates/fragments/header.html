@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html  lang="en"
+xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+
+ <!-- header section strats -->
+ <header class="header_section">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg custom_nav-container ">
+        <a class="navbar-brand" href="index.html">
+          <span sec:authorize="!isAuthenticated()">
+            <h1>E-LIBRARY SYSTEM</h1>
+
+          </span>
+        </a>
+
+       
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav  mx-auto ">
+            <span sec:authorize="!isAuthenticated()">
+           
+            <li class="nav-item ">
+              <a class="nav-link" th:href="@{/}">Home </a>
+            </li>
+           </span> 
+            <span sec:authorize="!isAuthenticated()">
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/register}">Register</a>
+            </li>
+            </span>
+            
+          <span sec:authorize="hasRole('ROLE_ADMIN')">
+
+            <li class="nav-item">
+            <a class="nav-link" th:href="@{/admin/addLibrarian}">AddLibrarian</a>
+            </li>
+          </span>
+        
+          <span sec:authorize="hasRole('ROLE_ADMIN')" >
+
+            <li class="nav-item">
+            <a class="nav-link" th:href="@{/admin/viewLibrarian}" >View Librarian</a>
+            </li>
+          </span>
+          <span sec:authorize="hasRole('ROLE_ADMIN')">
+
+            <li class="nav-item">
+            <a class="nav-link" th:href="@{/admin/addStudent}" > Student</a>
+            </li>
+          </span>
+           <span sec:authorize="hasRole('ROLE_ADMIN')" >
+
+            <li class="nav-item">
+            <a class="nav-link" th:href="@{/admin/viewStudent}" >View Student</a>
+            </li>
+          </span>
+
+          <span sec:authorize="hasRole('ROLE_LIBRARIAN')">
+
+            <li class="nav-item">
+            <a class="nav-link" th:href="@{/librarian/addBooks}">Add Books</a>
+            </li>
+          </span>
+          <span sec:authorize="hasRole('ROLE_LIBRARIAN')" >
+            <li class="nav-item">
+            <a class="nav-link" th:href="@{/librarian/viewBooks}" >View Books</a>
+            </li>
+          </span>
+
+          <span sec:authorize="hasRole('ROLE_LIBRARIAN')" >
+            <li class="nav-item">
+            <a class="nav-link" th:href="@{/librarian/issueBooks}" >Issue Books</a>
+            </li>
+          </span>
+          <span sec:authorize="hasRole('ROLE_LIBRARIAN')" >
+
+            <li class="nav-item">
+            <a class="nav-link" th:href="@{/librarian/returnBook}" >Return Books</a>
+            </li>
+          </span>
+          <!--span sec:authorize="hasRole('ROLE_LIBRARIAN')" >
+
+            <li class="nav-item">
+            <a class="nav-link" th:href="@{/librarian/searchBooks}" >Search Book</a>
+            </li>
+          </span-->
+
+          <span sec:authorize="hasRole('ROLE_LIBRARIAN')" >
+
+            <li class="nav-item">
+            <a class="nav-link" th:href="@{/librarian/defaulterList}" >Defaulter List</a>
+            </li>
+          </span>
+          
+<span sec:authorize="hasRole('ROLE_STUDENT')" >
+
+            <li class="nav-item">
+            <a class="nav-link" th:href="@{/student/viewBooks}" >viewBooks</a>
+            </li>
+          </span>
+          
+<span sec:authorize="hasRole('ROLE_STUDENT')" >
+
+            <li class="nav-item">
+            <a class="nav-link" th:href="@{/student/viewEBooks}" >viewEBooks</a>
+            </li>
+          </span>
+          
+         
+                <span sec:authorize="!isAuthenticated()">
+
+                  <li class="nav-item">
+                    <a class="nav-link" th:href="@{/aboutUs}" >AboutUs</a>
+                    
+                  </li></span>
+                
+
+                  <li class="nav-item">
+                    <a class="nav-link" th:href="@{/logout}" >Logout</a>
+                    
+                  </li>
+                
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <!-- end header section -->
+   
+</html>

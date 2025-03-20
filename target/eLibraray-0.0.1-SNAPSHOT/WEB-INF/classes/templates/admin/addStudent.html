@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="~{/fragments/head::head}">
+  </head>
+
+<body class="sub_page">
+
+  <div class="hero_area">
+    <div class="bg-box">
+      <img th:src="@{/resources/static/images/hero1-bg.jpg}" alt="">
+    </div>
+    <header th:replace="~{/fragments/header::header}"></header>
+  </div>
+
+  <!-- about section -->
+   <center>
+  <section class="book_section layout_padding">
+   <div class="container">
+      <div class="heading_container">
+        <h4>
+           ADD STUDENT
+        </h4>
+       </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form_container">
+            <p th:text="${msg}" th:if="${msg ne null}"  class="alert alert-success" ></p>
+
+            <form action="#"
+             th:action="@{/admin/saveStudent}" th:object="${student}" method="post">
+             <!--  th:object="${account}"
+             method="post">
+              --> 
+              <div>
+                <input type="text" id="name" name="name"   class="form-control" placeholder="Enter Full Name" />
+              </div>
+              <div>
+                <input id="email" name="email" type="text" class="form-control" placeholder="Enter Email" />
+               <div>
+				   <div>
+                <input id="password" name="password" type="password" class="form-control" placeholder="Enter Password" />
+               <div>
+              
+                <input type="text" id="phoneNo" name="phoneNo"   class="form-control" placeholder="Enter MobileNo" />
+              </div>
+                           <div>
+                <input type="date" id="date_of_birth" name="date_of_birth"  class="form-control" placeholder="Enter date_of_birth" />
+              </div>
+           
+              <div>
+                <select name="gender" id="gender"  class="form-control me-2" placeholder="Select gender" >
+                  <option value=" ">SELECT Gender</option>
+                  <option value="MALE">MALE</option>
+                  <option value="FEMALE">FEMALE</option>
+                  <option value="OTHERS">OTHERS</option>
+
+                </select>
+              </div>
+               <div>
+                <input type="text" id="address" name="address"   class="form-control" placeholder="Enter Address" />
+              </div>
+              
+              <div>
+                <input type="text" id="course" name="course"  class="form-control" placeholder="Enter Course" />
+              </div>
+                <select name="branch" id="branch"  class="form-control me-2" placeholder="Select Branch" >
+                      <option value="Select">Select Branch</option>
+                      <option value="Mechanical">Mechanical</option>
+                      <option value="Civil">Civil</option>
+                      <option value="Information Technology">Information Technology</option>
+                      <option value="Computer Science">Computer Science</option>
+                      <option value="Electrical">Electrical</option>
+                      
+     </select>
+             
+              <div class="btn_box" style="margin:-30px 80px;">
+                <button type="submit" class="btn  btn-secondary btn-lg btn-danger"> 
+                  ADD
+                </button>
+            
+              </form>
+        </div>
+    </div></div></div>
+  </section></center>
+  <!-- end register section -->
+
+<!--   <footer th:replace="~{/fragments/footer::footer}">
+ -->  <!-- end about section -->
+
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <html xmlns:th="http://www.thymeleaf.org">
+        <head th:replace="~{/fragments/head::head}">
+        </head>
+      <body class="sub_page">
+      
+        <div class="hero_area">
+           <div class="bg-box">
+            <img th:src="@{/resources/static/images/hero-bg.png}" alt="">
+          </div>
+          <header th:replace="~{/fragments/header::header}"></header>
+        </div>
+          <section class="book_section layout_padding">
+            <div class="container">
+               <div class="heading_container">
+                 <h4>
+                   Update Books
+                 </h4>
+               </div>
+               <div class="row">
+                 <div class="col-md-6">
+                   <div class="form_container">
+                     <p th:text="${msg}" th:if="${msg ne null}"  class="alert alert-success" ></p>
+                     <form action="#"
+                     th:action="@{/librarian/updateBooks/{book_id}(book_id=${book.book_id})}" th:object="${book}" method="post">
+                 
+                     <input type="hidden" id="book_id" name="book_id" th:value="${book.book_id}"/>
+                       <div>
+                         <input type="text" id="catagory" th:value="${book.catagory}" name="catagory"   class="form-control" placeholder="Enter Catagory" />
+                       </div>
+                       <div>
+                         <input id="text" name="book_name" th:value="${book.book_name}" type="book_name" class="form-control" placeholder="Enter Book_name" />
+                       </div>
+                       <div>
+                         <input type="text" id="author" name="author" th:value="${book.author}"  class="form-control" placeholder="Enter Author" />
+                       </div>
+                       <div>
+                         <input type="text" id="publisher" name="publisher" th:value="${book.publisher}" class="form-control" placeholder="Enter Publisher" />
+                       </div>
+                       <div>
+                         <input type="text" id="book_copies" name="book_copies" th:value="${book.book_copies}" class="form-control" readonly/>
+                       </div>
+                       
+                       <div>
+                         <input type="date" id="recieved" name="recieved" th:value="${book.recieved}" class="form-control" placeholder="Enter Recieved Date "/>
+                       </div>
+                       
+                       
+                      
+                      <!--
+                      <!--ut type="LocalDate" id="date_of_birth" name="date_of_birth"  th:field="*{date_of_birth}" class="form-control" placeholder="Enter date_of_birth" />
+                      <!---->
+<!-- 
+                       <div>
+                        <input type="text" id="course" name="course"  th:text="${id.course.course_name}" class="form-control" placeholder="Enter Course" />
+                      </div>
+ -->        <!--               th:field="*{middlename}"
+         -->           <div>
+      <!--r="course">Courses:</label>
+      <!--ultiple th:field="*{course}" id="course">
+      <!--on th:each="course : ${course}" 
+      <!--   th:value="${course.id}" 
+      <!--   th:text="${course.courseName}" 
+      <!--   th:selected="${teacher.course.contains(course)}"></option>
+      <!--
+    </div-->
+                     
+                    <!--
+                    <!--
+        <!--                 <p th:if="${#fields.hasErrors('birthofDate')}" th:errors="*{birthofDate}" th:errorclass="error"  class="alert alert-danger" role="alert">birthofDate Error</p>
+         
+                      </div-->
+                     <!-- <div>
+                     <!--   <input type="text" id="sem" name="sem"   th:text="${sem_name}" class="form-control" placeholder="Enter Semester" />
+                     <!-- </div>
+                     <!-- <div>
+                    <!--   <input type="text" id="subject" name="subject"   th:text="${sub_name}" class="form-control" placeholder="Enter Subject" />
+                    <!-- </div>
+                    <!---->
+          <button type="submit"  class="btn btn-primary">
+            Update
+          </button>
+         
+        
+        </form>
+
+
+</div>
+</div>
+</div>
+</section>
+</body></html>            
+         
